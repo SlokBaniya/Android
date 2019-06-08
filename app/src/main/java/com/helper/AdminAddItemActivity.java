@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import url.Url;
 
-public class AddItemActivity extends AppCompatActivity {
+public class AdminAddItemActivity extends AppCompatActivity {
     private EditText etItemName, etDescription, etPrice;
     private Button btnSave;
     private ImageView imgPhoto;
@@ -76,7 +76,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK){
             if (data == null){
-                Toast.makeText(AddItemActivity.this,"please select an image",Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminAddItemActivity.this,"please select an image",Toast.LENGTH_LONG).show();
             }
         }
         Uri uri = data.getData();
@@ -121,7 +121,7 @@ public class AddItemActivity extends AppCompatActivity {
             imageName = imageResponseResponse.body().getFilename();
 
         }catch (IOException e){
-            Toast.makeText(AddItemActivity.this,"error",Toast.LENGTH_LONG).show();
+            Toast.makeText(AdminAddItemActivity.this,"error",Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
@@ -145,15 +145,15 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (!response.isSuccessful()){
-                    Toast.makeText(AddItemActivity.this,"code " +response.code(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdminAddItemActivity.this,"code " +response.code(),Toast.LENGTH_LONG).show();
                     return;
                 }
-                Toast.makeText(AddItemActivity.this,"Added successfully",Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminAddItemActivity.this,"Added successfully",Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(AddItemActivity.this,"error " +t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminAddItemActivity.this,"error " +t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });
 

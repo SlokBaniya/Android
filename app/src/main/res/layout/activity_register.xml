@@ -18,19 +18,29 @@
         android:textAlignment="center"/>
 
     <EditText
-        android:id="@+id/etFname"
+        android:id="@+id/etname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name"
+        android:hint="Full Name"
         android:layout_margin="20dp"
         android:textSize="30dp"/>
+
     <EditText
-        android:id="@+id/etLname"
+        android:id="@+id/etaddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last Name"
+        android:hint="Current address"
         android:layout_margin="20dp"
         android:textSize="30dp"/>
+
+    <EditText
+        android:id="@+id/etnumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact Number"
+        android:layout_margin="20dp"
+        android:textSize="30dp"/>
+
 
     <EditText
         android:id="@+id/etUsername"

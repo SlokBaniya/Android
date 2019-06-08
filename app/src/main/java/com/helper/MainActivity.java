@@ -17,7 +17,7 @@ private Button btnGoTOLogin, btnGoToRegister;
         setContentView(R.layout.activity_main);
 
           btnGoToRegister = findViewById(R.id.btnGoToRegister);
-        btnGoToLogin = findViewById(R.id.btGoTonLogin);
+        btnGoTOLogin = findViewById(R.id.btnGoToLogin);
 
         btnGoToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,7 +27,7 @@ private Button btnGoTOLogin, btnGoToRegister;
             }
         });
 
-        btnGoToLogin.setOnClickListener(new View.OnClickListener() {
+        btnGoTOLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,LoginActivity.class);
