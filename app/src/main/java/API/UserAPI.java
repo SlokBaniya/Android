@@ -1,5 +1,6 @@
 package API;
 
+import model.Users;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -7,5 +8,5 @@ import retrofit2.http.POST;
 public interface UserAPI {
 
     @POST("users/signup")
-    Call<Void> addHero(@Body Users users);
+    Call<Void> addUsers(@Body Users users);
 }
