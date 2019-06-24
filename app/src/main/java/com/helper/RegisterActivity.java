@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import API.UserAPI;
 import model.Users;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import url.Url;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText etFullname,etAddress, etContact, etUsername, etPassword;
+    private EditText etFullname,etAddress, etContact, etUsername, etPassword,etCPassword;
     private Button btnRegister;
 
     @Override
@@ -29,30 +30,36 @@ public class RegisterActivity extends AppCompatActivity {
         etContact = findViewById(R.id.etContact);
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
+        etCPassword = findViewById(R.id.etCPassword);
         btnRegister = findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                register();
+                if(etFullname.getText().toString().equals("") || etContact.getText().toString().equals("") || etAddress.getText().toString().equals("") || etUsername.getText().toString().equals("") || etPassword.getText().toString().equals("")){
+                    Toast.makeText(RegisterActivity.this,"please fill all the fields",Toast.LENGTH_LONG).show();
+                }
+                else if (!etPassword.getText().toString().equals(etCPassword.getText().toString())){
+                    Toast.makeText(RegisterActivity.this,"Confirm password did not match",Toast.LENGTH_LONG).show();
+                }else{
+                    register();
+                }
             }
         });
     }
     private void register(){
+        UserAPI userAPI = Url.getInstance().create(UserAPI.class);
+
         String fullname= etFullname.getText().toString();
         String address = etAddress.getText().toString();
         String contact = etContact.getText().toString();
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
 
+
         Users users = new Users(fullname,address,contact,username,password);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Url.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        API.UserAPI userAPI = retrofit.create(API.UserAPI.class);
         Call<Void> usersCall = userAPI.addUsers(users);
         usersCall.enqueue(new Callback<Void>() {
             @Override

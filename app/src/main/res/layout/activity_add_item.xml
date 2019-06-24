@@ -23,7 +23,7 @@
         android:layout_height="200dp"
         android:scaleType="fitCenter"
         android:layout_gravity="center"
-        android:src="@drawable/ic_file"/>
+        />
 
     <EditText
         android:id="@+id/etItemName"

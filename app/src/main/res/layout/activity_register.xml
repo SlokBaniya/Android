@@ -5,67 +5,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back"
+    android:padding="40dp"
+    android:background="@drawable/back2"
     tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:textSize="50dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:textAlignment="center"/>
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@android:color/background_light"/>
 
     <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
         android:id="@+id/etFullname"
+        android:drawableLeft="@mipmap/account"
+        android:hint="Full name"
+        android:layout_marginTop="120dp"
+        android:textColor="#FFF"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#999"/>
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Full Name"
-        android:layout_margin="20dp"
-        android:textSize="30dp"/>
-
-    <EditText
+        android:inputType="textEmailAddress"
+        android:ems="10"
         android:id="@+id/etAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Current address"
-        android:layout_margin="20dp"
-        android:textSize="30dp"/>
+        android:drawableLeft="@mipmap/account"
+        android:hint="Address"
+        android:textColor="#FFF"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#999"/>
+
+
 
     <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
         android:id="@+id/etContact"
+        android:drawableLeft="@mipmap/account"
+        android:hint="Contact"
+        android:textColor="#FFF"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#999"/>
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contact Number"
-        android:layout_margin="20dp"
-        android:textSize="30dp"/>
-
-
-    <EditText
+        android:inputType="textEmailAddress"
+        android:ems="10"
         android:id="@+id/etUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:drawableLeft="@mipmap/account"
         android:hint="Username"
-        android:textSize="30dp"/>
-
+        android:textColor="#FFF"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#999"/>
     <EditText
-        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:layout_margin="20dp"
-        android:textSize="30dp"
-        android:hint="Password"/>
+        android:ems="10"
+        android:id="@+id/etPassword"
+        android:drawableLeft="@mipmap/lock"
+        android:hint="Password"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFF"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#999"/>
 
-
-    <Button
-        android:id="@+id/btnRegister"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/etCPassword"
+        android:drawableLeft="@mipmap/lock"
+        android:hint="Confirm Password"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFF"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#999"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Register"
-        android:textSize="30dp"/>
+        android:id="@+id/btnRegister"
+        android:background="@drawable/selector_xml_btn_yellow"
+        android:layout_gravity="center_horizontal"
+        />
 
 </LinearLayout>

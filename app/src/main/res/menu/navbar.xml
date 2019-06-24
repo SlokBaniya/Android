@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/all"
+            android:title="all"
+            
+            android:icon="@drawable/ic_all"/>
+        <item android:id="@+id/educational"
+            android:title="educational"
+            android:icon="@drawable/ic_education"/>
+        <item android:id="@+id/sports"
+            android:title="sports"
+            android:icon="@drawable/ic_sports"/>
+        <item android:id="@+id/political"
+            android:title="political"
+            android:icon="@drawable/ic_edit"/>
+        <item android:id="@+id/cultural"
+            android:title="cultural"
+            android:icon="@drawable/ic_domain"/>
+        <item android:id="@+id/entertainment"
+            android:title="entertainment"
+            android:icon="@drawable/ic_video"/>
+        <item android:id="@+id/world"
+            android:title="world"
+            android:icon="@drawable/ic_public"/>
+        <item android:id="@+id/changePassword"
+            android:title="change password"
+            android:icon="@drawable/ic_password"/>
+
+    </group>
+</menu>
