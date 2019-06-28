@@ -8,9 +8,9 @@ import retrofit2.http.POST;
 
 public interface UserAPI {
 
-    @POST("api/register")
+    @POST("api/user/register")
     Call<Void> addUsers(@Body Users users);
 
-    @POST("users/login")
+    @POST("api/user/login")
     Call<LoginSignupResponse> check(@Body Users users);
 }
