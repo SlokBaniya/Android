@@ -1,11 +1,14 @@
 package com.helper;
 
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.helper.BusinessLogicLayer.RegisterBLL;
 
 import API.UserAPI;
 import model.Users;
@@ -36,17 +39,36 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etFullname.getText().toString().equals("") || etContact.getText().toString().equals("") || etAddress.getText().toString().equals("") || etUsername.getText().toString().equals("") || etPassword.getText().toString().equals("")){
-                    Toast.makeText(RegisterActivity.this,"please fill all the fields",Toast.LENGTH_LONG).show();
-                }
-                else if (!etPassword.getText().toString().equals(etCPassword.getText().toString())){
-                    Toast.makeText(RegisterActivity.this,"Confirm password did not match",Toast.LENGTH_LONG).show();
-                }else{
-                    register();
+                if (etFullname.getText().toString().equals("") || etContact.getText().toString().equals("") || etAddress.getText().toString().equals("")  || etUsername.getText().toString().equals("") || etPassword.getText().toString().equals("")) {
+                    Toast.makeText(RegisterActivity.this, "please fill all the fields", Toast.LENGTH_LONG).show();
+                } else if (!etPassword.getText().toString().equals(etCPassword.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this, "Confirm password did not match", Toast.LENGTH_LONG).show();
+                } else {
+                    String fullname = etFullname.getText().toString();
+                    String address = etAddress.getText().toString();
+                    String contact = etContact.getText().toString();
+                    String username = etUsername.getText().toString();
+                    String password = etPassword.getText().toString();
+
+                    final RegisterBLL registerBLL = new RegisterBLL(fullname,address, contact,username,password);
+                    StrictMode();
+                    if (registerBLL.register()){
+                        Toast.makeText(RegisterActivity.this, RegisterBLL.m, Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Failed to register", Toast.LENGTH_LONG).show();
+                    }
+
+
+                    //register();
                 }
             }
         });
     }
+    private void StrictMode() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+    }
+
     private void register(){
         UserAPI userAPI = Url.getInstance().create(UserAPI.class);
 
