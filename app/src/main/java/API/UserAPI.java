@@ -29,5 +29,8 @@ public interface UserAPI {
     @GET("api/users/profile/{username}")
     Call<Users> getUserByUsername(@Path("username") String username);
 
+    @POST("news/search")
+    Call<List<Items>> getSearchItems(@Body Items news);
+
 
 }

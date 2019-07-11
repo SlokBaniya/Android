@@ -3,6 +3,10 @@ package com.helper;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +20,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import fragments.AllFragment;
 //import fragments.EducationalFragment;
@@ -28,10 +33,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navBar;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
-    private EditText etSearch;
+
     private TextView tvProfileName, tvLogout;
-    private ImageView imgSearch, imgProfile;
+
     String username;
+    SensorManager sensorManager;
 
 
     @Override
@@ -39,7 +45,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etSearch = findViewById(R.id.etSearch);
+        sensorGyro();
+        sensorAccelero();
+
 
         navBar = findViewById(R.id.navBar);
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -108,5 +116,64 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
+
+
+    public void sensorGyro(){
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        SensorEventListener gyro = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if (event.values[1]<-2){
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }else if(event.values[1]>2){
+                    Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        if (sensor != null){
+            sensorManager.registerListener(gyro,sensor,sensorManager.SENSOR_DELAY_NORMAL);
+        }else{
+            Toast.makeText(this,"No sensor found",Toast.LENGTH_LONG).show();
+        }
+    }
+    private void sensorAccelero(){
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        SensorEventListener sel = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                float[] values = event.values;
+                double xAxis = values[0];
+                double yAxis = values[1];
+                double zAxis = values[2];
+                if (yAxis<9){
+                    Intent intent = new Intent(MainActivity.this, UpdateUserActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        if (sensor != null){
+            sensorManager.registerListener(sel,sensor,sensorManager.SENSOR_DELAY_NORMAL);
+        }else{
+            Toast.makeText(this,"No sensor found",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 }
 

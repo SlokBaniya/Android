@@ -33,6 +33,15 @@
             android:layout_below="@+id/toolbar"
 
             android:orientation="vertical">
+            <Button
+                android:id="@+id/btnBook"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:text="Book Now"
+                android:layout_gravity="end"
+                android:background="@drawable/wall3"
+
+                />
 
             <ImageView
                 android:id="@+id/circleImage"

@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,6 +20,7 @@ import url.Url;
 public class DescriptionActivity extends AppCompatActivity {
     private ImageView circleImage, imgBack;
     TextView tvProduct, tvPrice, tvCategory, tvDesc;
+    Button btnBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +33,20 @@ public class DescriptionActivity extends AppCompatActivity {
         tvDesc = findViewById(R.id.tvDesc);
         circleImage = findViewById(R.id.circleImage);
         imgBack = findViewById(R.id.imgBack);
+        btnBook = findViewById(R.id.btnBook);
+
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // DescriptionActivity.super.onBackPressed();
                 Intent intent = new Intent(DescriptionActivity.this,MainActivity.class);
                 startActivity(intent);
+            }
+        });
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bookItem();
             }
         });
 
@@ -63,6 +74,10 @@ public class DescriptionActivity extends AppCompatActivity {
     private void StrictMode() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+    }
+    private void bookItem(){
+        Toast.makeText(DescriptionActivity.this, "Booking Unavailable", Toast.LENGTH_LONG).show();
+
     }
 
 }

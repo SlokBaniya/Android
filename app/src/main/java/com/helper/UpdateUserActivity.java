@@ -72,6 +72,8 @@ public class UpdateUserActivity extends AppCompatActivity {
                     Toast.makeText(UpdateUserActivity.this, "Please enter contact", Toast.LENGTH_LONG).show();
                 }else if (etPassword.getText().toString().equals("")){
                     Toast.makeText(UpdateUserActivity.this, "Please enter password", Toast.LENGTH_LONG).show();
+                }else if (etPassword.getText().toString().equals("Enter new password")){
+                    Toast.makeText(UpdateUserActivity.this, "Please enter new password", Toast.LENGTH_LONG).show();
                 }else{
                     updateProfile();
                 }
