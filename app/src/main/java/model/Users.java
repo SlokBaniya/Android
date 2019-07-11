@@ -15,6 +15,8 @@ public class Users {
         this.password = password;
     }
 
+    public Users() {
+    }
     public String getFullname() {
         return fullname;
     }

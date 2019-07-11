@@ -24,6 +24,7 @@
                 android:id="@+id/etSearch"
                 android:layout_width="358dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/wall2"
                 android:hint="Search"
                 />
 
@@ -38,9 +39,9 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="#3F71DC"
+            android:background="@drawable/wall2"
             android:gravity="center">
 
             <TextView
@@ -49,6 +50,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="70dp"
                 android:fontFamily="sans-serif-black"
+
                 android:gravity="center"
                 android:text="Musical Plaza"
                 android:textSize="30dp" />
@@ -70,7 +72,7 @@
         app:menu="@menu/navbar"
         app:headerLayout="@layout/profile_header"
         android:layout_gravity="start"
-        android:background="#3F71DC"
+        android:background="@drawable/wall2"
 
         android:fitsSystemWindows="true"
         >

@@ -1,5 +1,6 @@
 package com.helper;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,7 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
                     final RegisterBLL registerBLL = new RegisterBLL(fullname,address, contact,username,password);
                     StrictMode();
                     if (registerBLL.register()){
-                        Toast.makeText(RegisterActivity.this, RegisterBLL.m, Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this,"Account created! Redirecting to Login", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     }else{
                         Toast.makeText(RegisterActivity.this, "Failed to register", Toast.LENGTH_LONG).show();
                     }

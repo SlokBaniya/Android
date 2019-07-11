@@ -11,7 +11,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -89,12 +88,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        //hidedrawermenu();
+
     }
-//    private void hidedrawermenu(){
-//        Menu menu = navBar.getMenu();
-//        menu.findItem(R.id.navBar).setVisible(false);
-//    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -102,15 +98,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.Home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AllFragment()).commit();
                 break;
-//            case R.id.educational:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new EducationalFragment()).commit();
-//                break;
-//            case R.id.sports:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SportsFragment()).commit();
-//                break;
-//            case R.id.political:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new PoliticalFragment()).commit();
-//                break;
+            case R.id.Profile:
+                    Intent intent = new Intent(MainActivity.this,UpdateUserActivity.class);
+                    startActivity(intent);
+                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
 

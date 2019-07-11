@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="40dp"
-    android:background="@drawable/back2"
+    android:background="@drawable/wall2"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -100,7 +100,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="30dp"
         android:text="Register"
         android:id="@+id/btnRegister"

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@android:color/holo_blue_dark"
+            android:background="@color/colorPrimaryDark"
             android:gravity="center">
 
             <ImageView
@@ -29,6 +29,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/wall2"
+            android:layout_below="@+id/toolbar"
+
             android:orientation="vertical">
 
             <ImageView
@@ -36,7 +39,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_below="@+id/toolbar"
-
                 android:layout_marginTop="60dp"
                 android:src="@drawable/back" />
 
@@ -46,8 +48,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/circleImage"
                 android:layout_marginTop="5dp"
+
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-black"
+                android:textColor="#FFF"
                 android:text="Product:"
                 android:textSize="30dp"/>
 
@@ -57,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvTitle"
                 android:text="Price"
+                android:textColor="#FFF"
                 android:textSize="25dp" />
 
             <TextView
@@ -65,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPrice"
                 android:layout_marginBottom="20dp"
+                android:textColor="#FFF"
                 android:text="Category"
                 android:textSize="20dp" />
 
@@ -75,6 +81,7 @@
                 android:layout_below="@+id/tvDate"
                 android:inputType="textMultiLine"
                 android:text="About Product"
+                android:textColor="#FFF"
                 android:textSize="25dp"
                 android:height="250sp"/>
         </LinearLayout>

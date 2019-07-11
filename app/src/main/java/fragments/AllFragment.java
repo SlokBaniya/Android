@@ -48,8 +48,7 @@ public class AllFragment extends Fragment {
         listCall.enqueue(new Callback<List<Items>>() {
             @Override
             public void onResponse(Call<List<Items>> call, Response<List<Items>> response) {
-                Toast.makeText(getActivity(),"Succeess",Toast.LENGTH_LONG).show();
-                if (response.isSuccessful()){
+                 if (response.isSuccessful()){
                     heroesList = response.body();
                     ItemsAdapter adapter = new ItemsAdapter(heroesList,getActivity());
                     recyclerView.setAdapter(adapter);
