@@ -12,6 +12,8 @@ Features of the system:
 - Profile View and Update system,
 - View system using Scrolling mode,
 - Logout system
+API Github Link: https://github.com/SlokBaniya/webapi_backup
+Youtube Video Link : https://www.youtube.com/watch?v=kDmfYY80hao&t=50s
 
 Conclusion
 This system is build to display the use of CRUD system (Create, Update, Read and Delete). The app contains multiple activity
